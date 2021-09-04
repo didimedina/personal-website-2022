@@ -1,10 +1,10 @@
 import './App.css';
-import Button from './components/Button'
+import Website from './components/Website'
 
 
 function App() {
   return (
-    <Button/>
+    <Website />
   );
 }
 
