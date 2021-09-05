@@ -49,24 +49,33 @@ const Website = () =>  {
 
   React.useLayoutEffect(() => {
     
-    const tl = gsap.timeline({
+    gsap.timeline({
       scrollTrigger: {
           trigger: "#MISSION",
           scrub: 0.2,
           start: "top bottom",
           end: "top top",
           pin: "#HERO",
-          // pinSpacing: false,
+          pinSpacing: false,
           markers: true,
           id: "hero-pin"
       }})
       .to("#HEADER", {scale: 0.8, duration: 2, opacity: 0})
       .to("#BANNER", {duration: 3, y: -100}, "<")
       .from("#MISSION", {y: "+=100vh", duration: 3}, "<")
+      .from("#MISSIONBLURB", {y: "+=10vh", duration: 1, opacity: 0}, "<+=1")
 
-      const currentDuration = tl.duration();
 
-      console.log(currentDuration);
+      gsap.timeline({
+        trigger: "#CONTACT",
+        scrub: 0.2,
+        start: "top bottom",
+        end: "bottom bottom",
+        markers: true,
+        id: "taco-taco"
+      })
+      // .to("#MISSIONBLURB", {scale: 0.8, duration: 2, opacity: 0})
+      
 
   });
 
