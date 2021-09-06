@@ -12,7 +12,6 @@ const styles = {
     items-center	
     w-full
     flex-col
-    relative
   `,
   heroContainer: `
     h-screen
@@ -22,13 +21,14 @@ const styles = {
     max-w-5xl
     w-full
     bg-gray-100
+    z-0
   `,
   missionContainer: `
     w-full
     h-auto
     bg-black
-    absolute
     top-0
+    z-10
   `,
   missionBlurb: `
     text-white
@@ -62,19 +62,20 @@ const Website = () =>  {
       }})
       .to("#HEADER", {scale: 0.8, duration: 2, opacity: 0})
       .to("#BANNER", {duration: 3, y: -100}, "<")
-      .from("#MISSION", {y: "+=100vh", duration: 3}, "<")
-      .from("#MISSIONBLURB", {y: "+=10vh", duration: 1, opacity: 0}, "<+=1")
+      .from("#MISSIONBLURB", {y: "+=20vh", duration: 3, opacity: 0}, "<")
 
 
       gsap.timeline({
+        scrollTrigger: {
         trigger: "#CONTACT",
         scrub: 0.2,
         start: "top bottom",
         end: "bottom bottom",
         markers: true,
         id: "taco-taco"
-      })
-      // .to("#MISSIONBLURB", {scale: 0.8, duration: 2, opacity: 0})
+      }})
+      .from(["#JOIN", "#INTRO", "#PARTY"], {stagger: 1, y: "200px", duration: 2, opacity: 0})
+      
       
 
   });

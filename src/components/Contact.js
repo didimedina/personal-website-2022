@@ -1,4 +1,6 @@
 import React from 'react';
+import { useRef } from 'react';
+import gsap from 'gsap';
 
 
 const styles = {
@@ -59,19 +61,34 @@ text-black
 }
 
 
-
 const Contact = () =>  {
+
+  const animationRef = useRef(null)
+
+
+  React.useLayoutEffect(() => {
+    
+    animationRef.current = gsap.to("#ARROW", {paused: true, x: 50 })
+
+  }, []);
+
+  const onMouseEnterHandler = () => {
+    animationRef.current.play();
+  };
+
+
+
   return (
     <div id="CONTACT" className={styles.CTAContainer}>
       <button id="JOIN" className={styles.fillCTA}>
-        <div className={styles.fillHeading}>Join my team →</div>
+        <div id="ARROW" className={styles.fillHeading} onMouseEnter={onMouseEnterHandler}>Join my team →</div>
         <div className={styles.fillDescription}>If you’re a brilliant product person who cares deeply about helping others make time for what matters, I’d love to hear from you.</div>
       </button>
       <button id="INTRO" className={styles.pillCTA}>
         <div className={styles.pillHeading}>Get intro’d →</div>
         <div className={styles.pillDescription}>If you’re interested in hiring me, I’m currently unavailable. However, if you have an awesome project I’d be happy to introduce you to someone I trust.</div>
       </button>
-      <button id="INTRO" className={styles.pillCTA}>
+      <button id="PARTY" className={styles.pillCTA}>
         <div className={styles.pillHeading}>Throw a party →</div>
         <div className={styles.pillDescription}>If you’re into community building and want to collaberate on hosting a Peer to Peir dinner together, get in touch, it’ll be fun and somewhat professional.</div>
       </button>
