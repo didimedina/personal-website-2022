@@ -16,3 +16,13 @@ code {
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  @font-face {
+    font-family: "Circular";
+    font-weight: 400;
+    src: url('/src/assets/fonts/lineto-circular-pro-book.woff') format("woff");
+  }
+}
+
+
+

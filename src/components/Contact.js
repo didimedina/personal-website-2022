@@ -8,10 +8,11 @@ const styles = {
     grid-cols-2
     grid
     grid-rows-[auto, auto]
-    max-w-5xl
     w-full
+    max-w-screen-2xl
     gap-14
     mx-auto
+    px-4 sm:px-12 md:px-20 lg:px-28
     mb-40
   `,
 
@@ -24,9 +25,11 @@ const styles = {
   fillHeading: `
     text-4xl
     text-left
+    flex
     font-sans
   text-black
     mb-4
+    mr-auto
   `,
 
   fillDescription: `
@@ -65,10 +68,9 @@ const Contact = () =>  {
 
   const animationRef = useRef(null)
 
-
   React.useLayoutEffect(() => {
     
-    animationRef.current = gsap.to("#ARROW", {paused: true, x: 50 })
+    animationRef.current = gsap.to("#ARROW", {paused: true, x: 10, duration: 0.2})
 
   }, []);
 
@@ -76,14 +78,20 @@ const Contact = () =>  {
     animationRef.current.play();
   };
 
+  const onMouseLeaveHandler = () => {
+    animationRef.current.reverse();
+  };
 
 
   return (
     <div id="CONTACT" className={styles.CTAContainer}>
-      <button id="JOIN" className={styles.fillCTA}>
-        <div id="ARROW" className={styles.fillHeading} onMouseEnter={onMouseEnterHandler}>Join my team →</div>
+      <div id="JOIN" className={styles.fillCTA}>
+        <a href="didimedina.com" className={styles.fillHeading} onMouseEnter={onMouseEnterHandler} onMouseLeave={onMouseLeaveHandler}>
+          <div>Join my team</div>
+          <div id="ARROW" className={"ml-2"}>→</div>
+        </a>
         <div className={styles.fillDescription}>If you’re a brilliant product person who cares deeply about helping others make time for what matters, I’d love to hear from you.</div>
-      </button>
+      </div>
       <button id="INTRO" className={styles.pillCTA}>
         <div className={styles.pillHeading}>Get intro’d →</div>
         <div className={styles.pillDescription}>If you’re interested in hiring me, I’m currently unavailable. However, if you have an awesome project I’d be happy to introduce you to someone I trust.</div>

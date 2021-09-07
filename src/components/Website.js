@@ -6,21 +6,29 @@ import Header from './Header';
 import Contact from './Contact';
 
 
+/* TODOs
+  [x] Add circular font
+  [] Add banner img
+  [x] Add header
+  [x] Fix CTA anim to start later
+*/
+
 const styles = {
   body: `
     flex
     items-center	
-    w-full
+    w-auto
     flex-col
   `,
+
   heroContainer: `
     h-screen
     grid-cols-1
     grid
     grid-rows-6
-    max-w-5xl
+    max-w-screen-2xl
     w-full
-    bg-gray-100
+    mx-10
     z-0
   `,
   missionContainer: `
@@ -35,11 +43,12 @@ const styles = {
     font-sans
     font-normal
     text-6xl
-    max-w-4xl
+    max-w-screen-2xl
     mx-auto
     my-36
     tracking-wide
     leading-tight
+    px-4 sm:px-12 md:px-20 lg:px-28
   `
 }
 
@@ -52,16 +61,17 @@ const Website = () =>  {
     gsap.timeline({
       scrollTrigger: {
           trigger: "#MISSION",
-          scrub: 0.2,
+          scrub: 0.6,
           start: "top bottom",
           end: "top top",
           pin: "#HERO",
           pinSpacing: false,
-          markers: true,
+          // markers: true,
+          snap: true,
           id: "hero-pin"
       }})
-      .to("#HEADER", {scale: 0.8, duration: 2, opacity: 0})
-      .to("#BANNER", {duration: 3, y: -100}, "<")
+      .to("#HEADER", {duration: 3, opacity: 0})
+      .to("#BANNER", {duration: 3, y: "-10%"}, "<")
       .from("#MISSIONBLURB", {y: "+=20vh", duration: 3, opacity: 0}, "<")
 
 
@@ -69,9 +79,9 @@ const Website = () =>  {
         scrollTrigger: {
         trigger: "#CONTACT",
         scrub: 0.2,
-        start: "top bottom",
+        start: "top 80%",
         end: "bottom bottom",
-        markers: true,
+        // markers: true,
         id: "taco-taco"
       }})
       .from(["#JOIN", "#INTRO", "#PARTY"], {stagger: 1, y: "200px", duration: 2, opacity: 0})
