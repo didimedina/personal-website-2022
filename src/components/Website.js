@@ -9,6 +9,11 @@ import Contact from './Contact';
 /* TODOs
   [x] Add circular font
   [] Add banner img
+  [] Add links
+  [] Add logo svg
+  [] add previous clients section
+  [] add hover states for links (talk to Eilon about the best way to do that)
+  [] add responsive states for contact section
   [x] Add header
   [x] Fix CTA anim to start later
 */
@@ -23,8 +28,8 @@ const styles = {
 
   heroContainer: `
     h-screen
-    grid-cols-1
     grid
+    grid-cols-1
     grid-rows-6
     max-w-screen-2xl
     w-full

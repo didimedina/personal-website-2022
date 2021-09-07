@@ -9,29 +9,31 @@ const styles = {
     grid
     grid-cols-6
     grid-rows-6
+    bg-gray-100
   `,
 
   img: `
-    bg-gray-100
     col-start-1
     col-end-7
-    row-start-1
+    row-start-3 xl:row-start-1
     row-end-7
     z-0
     bg-hero-banner
-    bg-contain
+    bg-cover xl:bg-contain
     bg-no-repeat
-    bg-right-bottom
+    bg-top xl:bg-right-bottom
   `,
 
   text: `
-    pl-4 sm:pl-12 md:pl-20 lg:pl-28
+    xl:pl-28
     text-6xl
     leading-snug
+    text-center xl:text-left
     col-start-1
-    col-end-4
-    row-start-4
-    row-end-6
+    col-end-7 xl:col-end-4
+    row-start-1 xl:row-start-4
+    row-end-3 xl:row-end-6
+    place-self-center justify-self-center xl:place-self-start
     z-10
   `
 }
