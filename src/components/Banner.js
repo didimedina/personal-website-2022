@@ -10,6 +10,7 @@ const styles = {
     grid-cols-6
     grid-rows-6
     bg-gray-100
+    overflow-hidden
   `,
 
   img: `
@@ -22,6 +23,7 @@ const styles = {
     bg-cover xl:bg-contain
     bg-no-repeat
     bg-top xl:bg-right-bottom
+
   `,
 
   text: `
@@ -42,8 +44,8 @@ const styles = {
 const Banner = () =>  {
   return (
     <div id="BANNER" className={styles.container}>
-      <div className={styles.text}>Hey, I'm Didi, <br/> CPO at Magical</div>
-      <div className={styles.img}></div>
+      <div id="TACO2" className={styles.text}>Hey, I'm Didi, <br/> CPO at Magical</div>
+      <div id="TACO" className={styles.img}></div>
     </div>
   )
 }

@@ -8,12 +8,13 @@ import Contact from './Contact';
 
 /* TODOs
   [x] Add circular font
-  [] Add banner img
+  [x] Add banner img
   [] Add links
   [] Add logo svg
   [] add previous clients section
   [] add hover states for links (talk to Eilon about the best way to do that)
   [] add responsive states for contact section
+  [x] add responsive states for hero section
   [x] Add header
   [x] Fix CTA anim to start later
 */
@@ -76,6 +77,8 @@ const Website = () =>  {
           id: "hero-pin"
       }})
       .to("#HEADER", {duration: 3, opacity: 0})
+      .to("#TACO", {duration: 3, scale: 1.1, opacity: 0.5}, "<")
+      .to("#TACO2", {duration: 3, opacity: 0.5, y: 200}, "<")
       .to("#BANNER", {duration: 3, y: "-10%"}, "<")
       .from("#MISSIONBLURB", {y: "+=20vh", duration: 3, opacity: 0}, "<")
 
