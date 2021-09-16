@@ -72,7 +72,7 @@ const Contact = () =>  {
   const introAnimRef = useRef(null)
   const partyAnimRef = useRef(null)
 
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     
     joinAnimRef.current = gsap.to("#JOIN-ARROW", {paused: true, x: 10, duration: 0.2})
     introAnimRef.current = gsap.to("#INTRO-ARROW", {paused: true, x: 10, duration: 0.2})

@@ -1,4 +1,3 @@
-import './App.css';
 import Website from './components/Website'
 
 
