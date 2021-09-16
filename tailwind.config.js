@@ -8,7 +8,8 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: theme => ({
-        'hero-banner': "url('/src/assets/photos/profile-img.jpg')"
+        'hero-banner': "url('/src/assets/photos/profile-img.jpg')",
+        'wink': "url('/src/assets/photos/logo.svg')"
        }),
       fontFamily: {
         sans: ["Circular", ...defaultTheme.fontFamily.sans]

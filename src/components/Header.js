@@ -18,9 +18,11 @@ const styles = {
   `,
 
   logo: `
-    w-14
-    h-14
-    bg-black
+    bg-wink
+    bg-center
+    bg-contain
+    w-10
+    h-10
   `
 }
 

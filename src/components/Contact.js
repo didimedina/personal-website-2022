@@ -1,5 +1,5 @@
 import React from 'react';
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 
 
@@ -48,11 +48,13 @@ text-black
   `,
 
   pillHeading: `
-    text-4xl
-    text-left
-    font-sans
-  text-white
-    mb-4
+  text-4xl
+  text-left
+  flex
+  font-sans
+text-white
+  mb-4
+  mr-auto
   `,
 
   pillDescription: `
@@ -66,40 +68,70 @@ text-black
 
 const Contact = () =>  {
 
-  const animationRef = useRef(null)
+  const joinAnimRef = useRef(null)
+  const introAnimRef = useRef(null)
+  const partyAnimRef = useRef(null)
 
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     
-    animationRef.current = gsap.to("#ARROW", {paused: true, x: 10, duration: 0.2})
+    joinAnimRef.current = gsap.to("#JOIN-ARROW", {paused: true, x: 10, duration: 0.2})
+    introAnimRef.current = gsap.to("#INTRO-ARROW", {paused: true, x: 10, duration: 0.2})
+    partyAnimRef.current = gsap.to("#PARTY-ARROW", {paused: true, x: 10, duration: 0.2})
 
   }, []);
 
-  const onMouseEnterHandler = () => {
-    animationRef.current.play();
+  const onMouseEnterJoinHandler = () => {
+    joinAnimRef.current.play();
   };
 
-  const onMouseLeaveHandler = () => {
-    animationRef.current.reverse();
+  const onMouseLeaveJoinHandler = () => {
+    joinAnimRef.current.reverse();
+  };
+
+  const onMouseEnterIntroHandler = () => {
+    introAnimRef.current.play();
+  };
+
+  const onMouseLeaveIntroHandler = () => {
+    introAnimRef.current.reverse();
+  };
+
+  const onMouseEnterPartyHandler = () => {
+    partyAnimRef.current.play();
+  };
+
+  const onMouseLeavePartyHandler = () => {
+    partyAnimRef.current.reverse();
   };
 
 
   return (
     <div id="CONTACT" className={styles.CTAContainer}>
-      <div id="JOIN" className={styles.fillCTA}>
-        <a href="didimedina.com" className={styles.fillHeading} onMouseEnter={onMouseEnterHandler} onMouseLeave={onMouseLeaveHandler}>
+      
+      <a href="#" id="JOIN" className={styles.fillCTA} onMouseEnter={onMouseEnterJoinHandler} onMouseLeave={onMouseLeaveJoinHandler}>
+        <div className={styles.fillHeading}>
           <div>Join my team</div>
-          <div id="ARROW" className={"ml-2"}>→</div>
-        </a>
+          <div id="JOIN-ARROW" className={"ml-2"}>→</div>
+        </div>
         <div className={styles.fillDescription}>If you’re a brilliant product person who cares deeply about helping others make time for what matters, I’d love to hear from you.</div>
-      </div>
-      <button id="INTRO" className={styles.pillCTA}>
-        <div className={styles.pillHeading}>Get intro’d →</div>
+      </a>
+      
+      <a href="#" id="INTRO" className={styles.pillCTA} onMouseEnter={onMouseEnterIntroHandler} onMouseLeave={onMouseLeaveIntroHandler}>
+        <div className={styles.pillHeading}>
+          <div>Get intro’d</div>
+          <div id="INTRO-ARROW" className={"ml-2"}>→</div>
+        </div>
         <div className={styles.pillDescription}>If you’re interested in hiring me, I’m currently unavailable. However, if you have an awesome project I’d be happy to introduce you to someone I trust.</div>
-      </button>
-      <button id="PARTY" className={styles.pillCTA}>
-        <div className={styles.pillHeading}>Throw a party →</div>
+      </a>
+      
+      <a href="#" id="PARTY" className={styles.pillCTA} onMouseEnter={onMouseEnterPartyHandler} onMouseLeave={onMouseLeavePartyHandler}>
+        <div className={styles.pillHeading}>
+          <div>Throw a party</div>
+          <div id="PARTY-ARROW" className={"ml-2"}>→</div>
+        </div>
         <div className={styles.pillDescription}>If you’re into community building and want to collaberate on hosting a Peer to Peir dinner together, get in touch, it’ll be fun and somewhat professional.</div>
-      </button>
+      </a>
+
     </div>
   )
 }

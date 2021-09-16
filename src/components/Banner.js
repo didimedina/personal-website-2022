@@ -44,8 +44,8 @@ const styles = {
 const Banner = () =>  {
   return (
     <div id="BANNER" className={styles.container}>
-      <div id="TACO2" className={styles.text}>Hey, I'm Didi, <br/> CPO at Magical</div>
-      <div id="TACO" className={styles.img}></div>
+      <div id="HEY" className={styles.text}>Hey, I'm Didi, <br/> CPO at Magical</div>
+      <div id="IMG" className={styles.img}></div>
     </div>
   )
 }
